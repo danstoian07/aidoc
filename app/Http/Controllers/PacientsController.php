@@ -15,7 +15,7 @@ class PacientsController extends Controller
             'code'  => 'required'
         ]);
 
-        $pacient = Pacients::where('code', $request->code)->first();
+        $pacient = Pacients::where('code', $request->code)->latest()->first();
 
         if(! $pacient) {
             $pacient = new Pacients();
@@ -92,7 +92,7 @@ class PacientsController extends Controller
 
     public function getTime($code)
     {
-        $pacient = Pacients::where('code', $code)->first();
+        $pacient = Pacients::where('code', $code)->latest()->first();
 
         //minutes
         $now = Carbon::now();

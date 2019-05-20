@@ -35,7 +35,7 @@
         <form action="/enter-code" method="GET">
             @csrf
             <div class="form-group pb-4">
-                <label for="code">Client Code</label>
+                <label for="code">Patient Code</label>
                 <div class="input-group">
                     <input class="form-control form-control-lg" type="number" id="code" name="code">
                     <div class="input-group-append">
