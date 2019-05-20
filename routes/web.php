@@ -17,7 +17,8 @@ Route::get('/', 'DataController@index');
 Route::get('/send-code', 'DataController@get');
 Route::post('/send-code', 'DataController@savePacient');
 
-Route::post('/enter-code', 'PacientsController@pacient');
+Route::get('/enter-code', 'PacientsController@pacient');
+Route::get('/get-time/{code}', 'PacientsController@getTime');
 
 
 Route::post('/learn-data', 'DataController@learn');

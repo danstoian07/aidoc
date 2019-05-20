@@ -9,6 +9,7 @@ if ('serviceWorker' in navigator) {
 window.Vue = require('vue');
 
 import Symptoms from './components/Symptoms'
+import Minutes from './components/Minutes'
 
 const app = new Vue({
     el: '#app',
@@ -16,7 +17,7 @@ const app = new Vue({
 
     },
     components: {
-        Symptoms
+        Symptoms, Minutes
     },
     methods: {
 

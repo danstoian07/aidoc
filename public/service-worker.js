@@ -10,7 +10,7 @@ workbox.googleAnalytics.initialize();
 
 workbox.core.setCacheNameDetails({
     prefix: 'aidoc-app',
-    suffix: 'v1.1'
+    suffix: 'v1.2'
 });
 
 workbox.routing.registerRoute(

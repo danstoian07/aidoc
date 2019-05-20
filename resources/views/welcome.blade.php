@@ -53,26 +53,10 @@
                     <h4 class="display-5">{{ $pacient->name }} <a class="btn btn-secondary pull-right" href="/" role="button">Back</a></h4>
 
                 </div>
-            @else
-            <form action="/enter-code" method="POST">
-                @csrf
-                <div class="form-group pb-4">
-                    <label for="code">Client Code</label>
-                    <div class="input-group">
-                        <input class="form-control form-control-lg" type="number" id="code" name="code">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="submit">Enter</button>
-                        </div>
-                    </div>
-                </div>
-
-            </form>
             @endif
 
             @if(isset($minutes))
-            <div class="jumbotron text-center">
-                <h1 class="display-4">{{ $minutes }} Minutes</h1>
-            </div>
+                <minutes :pacient_code="{{ $pacient->code }}" initial_minutes="{{ $minutes }}"></minutes>
             @endif
 
             @if(isset($pacient_symptoms))
@@ -99,6 +83,25 @@
         </footer>
 
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        {{--<script src="https://code.jquery.com/jquery-3.4.1.js"></script>--}}
+        {{--<script>--}}
+            {{--$( document ).ready(function() {--}}
+                {{--var time = new Date().getTime();--}}
+                {{--$(document.body).bind("mousemove keypress", function(e) {--}}
+                    {{--time = new Date().getTime();--}}
+                {{--});--}}
+
+                {{--function refresh() {--}}
+                    {{--if(new Date().getTime() - time >= 6000)--}}
+                        {{--window.location.reload(true);--}}
+                    {{--else--}}
+                        {{--setTimeout(refresh, 10000);--}}
+                {{--}--}}
+
+                {{--setTimeout(refresh, 10000);--}}
+            {{--});--}}
+        {{--</script>--}}
 
     </body>
 </html>

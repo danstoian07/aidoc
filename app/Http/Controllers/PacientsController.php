@@ -89,4 +89,22 @@ class PacientsController extends Controller
 
         return view('welcome', compact('pacient', 'minutes', 'pacient_symptoms', 'test_data'));
     }
+
+    public function getTime($code)
+    {
+        $pacient = Pacients::where('code', $code)->first();
+
+        //minutes
+        $now = Carbon::now();
+        $pacient_time = Carbon::createFromFormat('H:i', $pacient->time);
+        $minutes = $now->diffInMinutes($pacient_time, false);
+        if($minutes < 0) {
+            $minutes = 0;
+        }
+
+        return response()->json([
+            'time' => $minutes
+        ]);
+    }
+
 }
